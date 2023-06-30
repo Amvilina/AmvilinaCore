@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B172B612A4F0B84003C0CEF /* UnitTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B172B5F2A4F0B84003C0CEF /* UnitTests.cpp */; };
 		8B446DEB2A4E0A580066BDC8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DEA2A4E0A580066BDC8 /* main.cpp */; };
+		8B446E012A4E0AB10066BDC8 /* TestAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DF32A4E0AB10066BDC8 /* TestAllocator.cpp */; };
+		8B446E022A4E0AB10066BDC8 /* TestClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DF52A4E0AB10066BDC8 /* TestClass.cpp */; };
+		8B446E032A4E0AB10066BDC8 /* TestClassResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DFA2A4E0AB10066BDC8 /* TestClassResult.cpp */; };
+		8B446E042A4E0AB10066BDC8 /* TestCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DFB2A4E0AB10066BDC8 /* TestCollection.cpp */; };
+		8B446E052A4E0AB10066BDC8 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DFC2A4E0AB10066BDC8 /* Timer.cpp */; };
+		8B446E062A4E0AB10066BDC8 /* TestMethodResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DFE2A4E0AB10066BDC8 /* TestMethodResult.cpp */; };
+		8B446E072A4E0AB10066BDC8 /* TestError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DFF2A4E0AB10066BDC8 /* TestError.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +31,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B172B5F2A4F0B84003C0CEF /* UnitTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnitTests.cpp; sourceTree = "<group>"; };
+		8B172B602A4F0B84003C0CEF /* UnitTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnitTests.hpp; sourceTree = "<group>"; };
 		8B446DE72A4E0A580066BDC8 /* AmvilinaCore */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AmvilinaCore; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B446DEA2A4E0A580066BDC8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8B446DF22A4E0AB10066BDC8 /* TestMethodResult.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestMethodResult.hpp; sourceTree = "<group>"; };
+		8B446DF32A4E0AB10066BDC8 /* TestAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestAllocator.cpp; sourceTree = "<group>"; };
+		8B446DF42A4E0AB10066BDC8 /* TestError.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestError.hpp; sourceTree = "<group>"; };
+		8B446DF52A4E0AB10066BDC8 /* TestClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestClass.cpp; sourceTree = "<group>"; };
+		8B446DF62A4E0AB10066BDC8 /* TestClassResult.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestClassResult.hpp; sourceTree = "<group>"; };
+		8B446DF72A4E0AB10066BDC8 /* TestAllocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestAllocator.hpp; sourceTree = "<group>"; };
+		8B446DF82A4E0AB10066BDC8 /* TestCollection.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestCollection.hpp; sourceTree = "<group>"; };
+		8B446DF92A4E0AB10066BDC8 /* Assert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Assert.hpp; sourceTree = "<group>"; };
+		8B446DFA2A4E0AB10066BDC8 /* TestClassResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestClassResult.cpp; sourceTree = "<group>"; };
+		8B446DFB2A4E0AB10066BDC8 /* TestCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestCollection.cpp; sourceTree = "<group>"; };
+		8B446DFC2A4E0AB10066BDC8 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		8B446DFD2A4E0AB10066BDC8 /* TestClass.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestClass.hpp; sourceTree = "<group>"; };
+		8B446DFE2A4E0AB10066BDC8 /* TestMethodResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestMethodResult.cpp; sourceTree = "<group>"; };
+		8B446DFF2A4E0AB10066BDC8 /* TestError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestError.cpp; sourceTree = "<group>"; };
+		8B446E002A4E0AB10066BDC8 /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
+		8B446E0E2A4E0B980066BDC8 /* ArrayTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ArrayTests.hpp; sourceTree = "<group>"; };
+		8B446E0F2A4E19E00066BDC8 /* Array.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Array.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +84,44 @@
 		8B446DE92A4E0A580066BDC8 /* AmvilinaCore */ = {
 			isa = PBXGroup;
 			children = (
+				8B446E0D2A4E0B810066BDC8 /* UnitTests */,
+				8B446E0B2A4E0B5A0066BDC8 /* UnitTestSystem */,
+				8B446DF92A4E0AB10066BDC8 /* Assert.hpp */,
 				8B446DEA2A4E0A580066BDC8 /* main.cpp */,
+				8B446E0F2A4E19E00066BDC8 /* Array.hpp */,
 			);
 			path = AmvilinaCore;
+			sourceTree = "<group>";
+		};
+		8B446E0B2A4E0B5A0066BDC8 /* UnitTestSystem */ = {
+			isa = PBXGroup;
+			children = (
+				8B446DF32A4E0AB10066BDC8 /* TestAllocator.cpp */,
+				8B446DF72A4E0AB10066BDC8 /* TestAllocator.hpp */,
+				8B446DF52A4E0AB10066BDC8 /* TestClass.cpp */,
+				8B446DFD2A4E0AB10066BDC8 /* TestClass.hpp */,
+				8B446DFA2A4E0AB10066BDC8 /* TestClassResult.cpp */,
+				8B446DF62A4E0AB10066BDC8 /* TestClassResult.hpp */,
+				8B446DFB2A4E0AB10066BDC8 /* TestCollection.cpp */,
+				8B446DF82A4E0AB10066BDC8 /* TestCollection.hpp */,
+				8B446DFF2A4E0AB10066BDC8 /* TestError.cpp */,
+				8B446DF42A4E0AB10066BDC8 /* TestError.hpp */,
+				8B446DFE2A4E0AB10066BDC8 /* TestMethodResult.cpp */,
+				8B446DF22A4E0AB10066BDC8 /* TestMethodResult.hpp */,
+				8B446DFC2A4E0AB10066BDC8 /* Timer.cpp */,
+				8B446E002A4E0AB10066BDC8 /* Timer.hpp */,
+			);
+			path = UnitTestSystem;
+			sourceTree = "<group>";
+		};
+		8B446E0D2A4E0B810066BDC8 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B446E0E2A4E0B980066BDC8 /* ArrayTests.hpp */,
+				8B172B5F2A4F0B84003C0CEF /* UnitTests.cpp */,
+				8B172B602A4F0B84003C0CEF /* UnitTests.hpp */,
+			);
+			path = UnitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +181,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B446E072A4E0AB10066BDC8 /* TestError.cpp in Sources */,
+				8B446E022A4E0AB10066BDC8 /* TestClass.cpp in Sources */,
+				8B446E032A4E0AB10066BDC8 /* TestClassResult.cpp in Sources */,
 				8B446DEB2A4E0A580066BDC8 /* main.cpp in Sources */,
+				8B172B612A4F0B84003C0CEF /* UnitTests.cpp in Sources */,
+				8B446E052A4E0AB10066BDC8 /* Timer.cpp in Sources */,
+				8B446E012A4E0AB10066BDC8 /* TestAllocator.cpp in Sources */,
+				8B446E042A4E0AB10066BDC8 /* TestCollection.cpp in Sources */,
+				8B446E062A4E0AB10066BDC8 /* TestMethodResult.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,14 +1,10 @@
-//
-//  main.cpp
-//  AmvilinaCore
-//
-//  Created by Антон Творожков on 29.06.2023.
-//
-
-#include <iostream>
+#include "UnitTests.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+
+    // TODO: add print modes to this function
+    // TODO: add special macros flags: MEMORY_LEAK_CHECK / TIME_CHECK and gather information only if they appeared in TEST_METHOD
+    UnitTests::Run();
+    
     return 0;
 }
