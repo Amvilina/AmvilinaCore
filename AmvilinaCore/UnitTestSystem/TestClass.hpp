@@ -60,6 +60,10 @@ TEST_METHOD_START(#name)    \
 namespace {                                                                             \
 static name name##Instance;                                                             \
 }                                                                                       \
+
+#define TIME_CHECKING methodResult.isTimeChecking = true
+
+#define MEMORY_CHECKING methodResult.isMemoryChecking = true
         
 #define MUST_BE_TRUE(exp) if(!(exp)) throw(TestError(__LINE__, #exp, "Expected True but was False"))
 

@@ -2,6 +2,7 @@
 #define TestCollection_hpp
 
 #include <vector>
+#include "TestClass.hpp"
 
 namespace UnitTests{
 
@@ -15,9 +16,18 @@ public:
     static TestCollection& Instance();
     void AddTest(TestClass* test);
     void RunAndPrintAll() const;
-    void RunAndPrintInteresting() const;
+    void RunAndPrintFailed() const;
+    void RunAndPrintMemory() const;
+    void RunAndPrintTime() const;
 private:
-    void RunAndPrint(bool onlyInteresting) const;
+    enum class PrintType {
+        All,
+        Failed,
+        Memory,
+        Time
+    };
+    void RunAndPrint(PrintType printType) const;
+    void PrintHeader(const TestClassResult& result) const;
 };
 
 }

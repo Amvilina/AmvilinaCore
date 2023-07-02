@@ -1,5 +1,4 @@
 #include "TestCollection.hpp"
-#include "TestClass.hpp"
 #include <iostream>
 
 using namespace UnitTests;
@@ -14,25 +13,50 @@ void TestCollection::AddTest(TestClass* test) {
 }
 
 void TestCollection::RunAndPrintAll() const{
-    RunAndPrint(false);
+    RunAndPrint(PrintType::All);
 }
 
-void TestCollection::RunAndPrintInteresting() const{
-    RunAndPrint(true);
+void TestCollection::RunAndPrintFailed() const{
+    RunAndPrint(PrintType::Failed);
 }
 
-void TestCollection::RunAndPrint(bool onlyInteresting) const{
+void TestCollection::RunAndPrintTime() const{
+    RunAndPrint(PrintType::Time);
+}
+
+void TestCollection::RunAndPrintMemory() const{
+    RunAndPrint(PrintType::Memory);
+}
+
+void TestCollection::RunAndPrint(PrintType printType) const{
     for (auto testPointer : _testPointers) {
         std::cout << testPointer->Name() << ' ';
         TestClassResult result = testPointer->Run();
-        std::cout << "( " << result.SuccessfulCount() << " / " << result.AllCount() << " )"
-                  << " in " << result.TimeElapsed() << " microseconds with " << result.BytesLeaked() << " bytes leaked\n";
-        std::cout << "===============================\n";
+        PrintHeader(result);
         for (TestMethodResult methodResult : result.GetMethodsResults())
-            if(onlyInteresting && methodResult.IsSuccess() && !methodResult.IsMemoryLeak())
-                continue;
-            else
-                std::cout << methodResult.GetMessage();
+            switch (printType) {
+                case PrintType::All:
+                    std::cout << methodResult.GetMessage();
+                    break;
+                case PrintType::Failed:
+                    if(!methodResult.IsSuccess())
+                        std::cout << methodResult.GetMessage();
+                    break;
+                case PrintType::Time:
+                    if(methodResult.IsTimeChecking())
+                        std::cout << methodResult.GetMessage();
+                    break;
+                case PrintType::Memory:
+                    if(methodResult.IsMemoryChecking())
+                        std::cout << methodResult.GetMessage();
+                    break;
+            }
         std::cout << "===============================\n\n";
     }
+}
+
+void TestCollection::PrintHeader(const TestClassResult& result) const {
+    std::cout << "( " << result.SuccessfulCount() << " / " << result.AllCount() << " )"
+              << " in " << result.TimeElapsed() << " microseconds with " << result.BytesLeaked() << " bytes leaked\n";
+    std::cout << "===============================\n";
 }
