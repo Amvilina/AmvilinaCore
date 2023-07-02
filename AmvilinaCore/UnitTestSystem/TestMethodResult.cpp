@@ -14,16 +14,14 @@ std::string TestMethodResult::GetMessage() const {
     
     if(IsSuccess()) {
         ss << " PASSED! ";
-        if(isTimeChecking)
+        if(IsTimeChecking())
             ss << timeElapsed << " microseconds";
-        if(isMemoryChecking)
-            ss << bytesLeaked << " bytes leaked";
         ss << '\n';
         return ss.str();
     }
     
     if(IsMemoryLeak()) {
-        ss << " MEMORY LEAK!  <--  " << bytesLeaked << "bytes leaked\n";
+        ss << " MEMORY LEAK!  <--  " << bytesLeaked << " bytes leaked\n";
         return ss.str();
     }
     
@@ -44,8 +42,3 @@ bool TestMethodResult::IsSuccess() const {
 bool TestMethodResult::IsTimeChecking() const {
     return isTimeChecking;
 }
-
-bool TestMethodResult::IsMemoryChecking() const {
-    return isMemoryChecking;
-}
-

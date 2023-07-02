@@ -17,13 +17,11 @@ public:
     void AddTest(TestClass* test);
     void RunAndPrintAll() const;
     void RunAndPrintFailed() const;
-    void RunAndPrintMemory() const;
     void RunAndPrintTime() const;
 private:
     enum class PrintType {
         All,
         Failed,
-        Memory,
         Time
     };
     void RunAndPrint(PrintType printType) const;

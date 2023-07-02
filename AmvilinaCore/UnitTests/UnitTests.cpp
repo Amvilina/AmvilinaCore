@@ -7,7 +7,6 @@ void Run() {
     //TestCollection::Instance().RunAndPrintAll();
     TestCollection::Instance().RunAndPrintFailed();
     //TestCollection::Instance().RunAndPrintTime();
-    //TestCollection::Instance().RunAndPrintMemory();
 }
 
 }

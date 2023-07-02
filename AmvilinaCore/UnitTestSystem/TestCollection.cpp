@@ -24,10 +24,6 @@ void TestCollection::RunAndPrintTime() const{
     RunAndPrint(PrintType::Time);
 }
 
-void TestCollection::RunAndPrintMemory() const{
-    RunAndPrint(PrintType::Memory);
-}
-
 void TestCollection::RunAndPrint(PrintType printType) const{
     for (auto testPointer : _testPointers) {
         std::cout << testPointer->Name() << ' ';
@@ -44,10 +40,6 @@ void TestCollection::RunAndPrint(PrintType printType) const{
                     break;
                 case PrintType::Time:
                     if(methodResult.IsTimeChecking())
-                        std::cout << methodResult.GetMessage();
-                    break;
-                case PrintType::Memory:
-                    if(methodResult.IsMemoryChecking())
                         std::cout << methodResult.GetMessage();
                     break;
             }
