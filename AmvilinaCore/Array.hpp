@@ -2,6 +2,7 @@
 #define Array_hpp
 
 #include "Assert.hpp"
+#include <algorithm>
 
 using u64 = uint64_t;
 using u8 = uint8_t;
