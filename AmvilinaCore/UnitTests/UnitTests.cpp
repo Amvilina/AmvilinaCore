@@ -4,8 +4,8 @@
 namespace UnitTests{
 
 void Run() {
-    TestCollection::Instance().RunAndPrintAll();
-    //TestCollection::Instance().RunAndPrintInteresting();
+    //TestCollection::Instance().RunAndPrintAll();
+    TestCollection::Instance().RunAndPrintInteresting();
 }
 
 }
