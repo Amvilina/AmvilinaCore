@@ -47,6 +47,10 @@ TEST_METHOD_START(#name)    \
             catch(const TestError& error) {                                             \
                 methodResult.error = error;                                             \
             }                                                                           \
+            catch(...) {                                                                \
+                TestError error(0, "", "Unknown exception occured!");                   \
+                methodResult.error = error;                                             \
+            }                                                                           \
             methodResult.bytesLeaked = TestAllocatorBytesCounter::Get();                \
             methodResult.timeElapsed = timer.Elapsed();                                 \
             classResult.AddMethodResult(methodResult);                                  \

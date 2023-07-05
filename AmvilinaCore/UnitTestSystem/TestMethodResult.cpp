@@ -15,7 +15,7 @@ std::string TestMethodResult::GetMessage() const {
     if(IsSuccess()) {
         ss << " PASSED! ";
         if(IsTimeChecking())
-            ss << timeElapsed << " microseconds";
+            ss << (double)timeElapsed / 1000.0 << "ms";
         ss << '\n';
         return ss.str();
     }

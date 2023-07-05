@@ -5,8 +5,9 @@ namespace UnitTests{
 
 void Run() {
     //TestCollection::Instance().RunAndPrintAll();
-    TestCollection::Instance().RunAndPrintFailed();
+    //TestCollection::Instance().RunAndPrintFailed();
     //TestCollection::Instance().RunAndPrintTime();
+    TestCollection::Instance().RunAndPrintInteresting();
 }
 
 }

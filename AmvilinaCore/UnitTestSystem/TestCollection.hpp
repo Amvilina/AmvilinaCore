@@ -18,14 +18,17 @@ public:
     void RunAndPrintAll() const;
     void RunAndPrintFailed() const;
     void RunAndPrintTime() const;
+    void RunAndPrintInteresting() const;
 private:
     enum class PrintType {
         All,
         Failed,
-        Time
+        Time,
+        Interesting
     };
     void RunAndPrint(PrintType printType) const;
     void PrintHeader(const TestClassResult& result) const;
+    bool ShouldPrintMethodResult(const TestMethodResult& result, PrintType printType) const;
 };
 
 }

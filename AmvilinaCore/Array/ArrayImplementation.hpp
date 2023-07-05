@@ -1,170 +1,5 @@
-#ifndef Array_hpp
-#define Array_hpp
-
-#include "Assert.hpp"
-#include <algorithm>
-
-using u64 = uint64_t;
-using u8 = uint8_t;
-
-template <class Tdata, class Allocator = std::allocator<Tdata>>
-class Array{
-private:
-    Tdata* _data;
-    u64 _size;
-    u64 _capacity;
-    Allocator _allocator;
-    static constexpr u8 APPEND_FACTOR = 2;
-public:
-    Array();
-    explicit Array(u64 size);
-    Array(const Array& other);
-    Array& operator=(const Array& other);
-    Array(Array&& other);
-    Array& operator=(Array&& other);
-    Array(std::initializer_list<Tdata> list);
-    ~Array();
-    
-    u64 Size() const;
-    u64 Capacity() const;
-    Tdata* Data();
-    const Tdata* Data() const;
-    Tdata operator[](u64 index) const;
-    Tdata& operator[](u64 index);
-    Tdata At(u64 index) const;
-    Tdata& At(u64 index);
-    
-    void Reserve(u64 value);
-    Array& Append(const Tdata& data);
-    Array& Append(const Array& other);
-private:
-    void AllocateMemory(u64 size);
-    void FreeMemory();
-    void CopyFrom(const Array& other);
-    void MoveFrom(Array&& other);
-    void CopyToTheEndFrom(const Array& other);
-public:
-    template <class Tpointer, class Treference>
-    class TemplateIterator;
-    
-    using Iterator      = TemplateIterator<Tdata*, Tdata&>;
-    using ConstIterator = TemplateIterator<const Tdata*, const Tdata&>;
-    
-    Iterator begin();
-    Iterator end();
-    ConstIterator begin() const;
-    ConstIterator end() const;
-    ConstIterator cbegin() const;
-    ConstIterator cend() const;
-};
-
-template <class Tdata, class Allocator>
-template <class Tpointer, class Treference>
-class Array<Tdata, Allocator>::TemplateIterator {
-public:
-    using iterator_category = std::contiguous_iterator_tag;
-    using difference_type   = std::ptrdiff_t;
-    using value_type        = Tdata;
-    using pointer           = Tpointer;
-    using reference         = Treference;
-private:
-    pointer _ptr;
-public:
-    TemplateIterator(pointer ptr) {
-        _ptr = ptr;
-    }
-    
-    pointer RawPointer() const {
-        return _ptr;
-    }
-    
-    reference operator*() const {
-        return *_ptr;
-    }
-    
-    pointer operator->() const {
-        return _ptr;
-    }
-    
-    TemplateIterator& operator++() {
-        ++_ptr;
-        return *this;
-    }
-    
-    TemplateIterator operator++(int) {
-        TemplateIterator it = *this;
-        ++_ptr;
-        return it;
-    }
-    
-    TemplateIterator& operator--() {
-        --_ptr;
-        return *this;
-    }
-    
-    TemplateIterator operator--(int) {
-        TemplateIterator it = *this;
-        --_ptr;
-        return it;
-    }
-    
-    friend bool operator==(const TemplateIterator& a, const TemplateIterator& b) {
-        return a._ptr == b._ptr;
-    }
-    
-    friend bool operator!=(const TemplateIterator& a, const TemplateIterator& b) {
-        return a._ptr != b._ptr;
-    }
-    
-    friend bool operator>(const TemplateIterator& a, const TemplateIterator& b) {
-        return a._ptr > b._ptr;
-    }
-    
-    friend bool operator<(const TemplateIterator& a, const TemplateIterator& b) {
-        return a._ptr < b._ptr;
-    }
-    
-    friend bool operator>=(const TemplateIterator& a, const TemplateIterator& b) {
-        return a._ptr >= b._ptr;
-    }
-    
-    friend bool operator<=(const TemplateIterator& a, const TemplateIterator& b) {
-        return a._ptr <= b._ptr;
-    }
-    
-    friend TemplateIterator operator+(difference_type n, const TemplateIterator& it) {
-        TemplateIterator temp = it;
-        return temp += n;
-    }
-    
-    friend TemplateIterator operator+(const TemplateIterator& it, difference_type n) {
-        TemplateIterator temp = it;
-        return temp += n;
-    }
-    
-    TemplateIterator& operator+=(difference_type n) {
-        _ptr += n;
-        return *this;
-    }
-    
-    TemplateIterator operator-(difference_type n) const {
-        TemplateIterator temp = *this;
-        return temp -= n;
-    }
-    
-    TemplateIterator& operator-=(difference_type n) {
-        return (*this) += -n;
-    }
-    
-    reference operator[](difference_type n) const {
-        return *(_ptr + n);
-    }
-    
-    difference_type operator-(const TemplateIterator& other) const {
-        return _ptr - other._ptr;
-    }
-};
-
+#ifndef ArrayImplementation_h
+#define ArrayImplementation_h
 
 #define ARRAY_TEMPLATE template <class Tdata, class Allocator>
 #define ARRAY_CLASS Array<Tdata, Allocator>
@@ -238,6 +73,24 @@ ARRAY_CLASS::~Array() {
 }
 
 ARRAY_TEMPLATE
+ARRAY_CLASS ARRAY_CLASS::CreateWithSize(u64 size) {
+    return Array(size);
+}
+
+ARRAY_TEMPLATE
+ARRAY_CLASS ARRAY_CLASS::CreateWithCapacity(u64 capacity) {
+    return CreateWithSizeAndCapacity(0, capacity);
+}
+
+ARRAY_TEMPLATE
+ARRAY_CLASS ARRAY_CLASS::CreateWithSizeAndCapacity(u64 size, u64 capacity) {
+    ASSERT(capacity >= size);
+    Array arr(capacity);
+    arr._size = size;
+    return arr;
+}
+
+ARRAY_TEMPLATE
 u64 ARRAY_CLASS::Size() const {
     return _size;
 }
@@ -258,7 +111,7 @@ const Tdata* ARRAY_CLASS::Data() const {
 }
 
 ARRAY_TEMPLATE
-Tdata ARRAY_CLASS::operator[](u64 index) const {
+const Tdata& ARRAY_CLASS::operator[](u64 index) const {
     return At(index);
 }
 
@@ -268,7 +121,7 @@ Tdata& ARRAY_CLASS::operator[](u64 index) {
 }
 
 ARRAY_TEMPLATE
-Tdata ARRAY_CLASS::At(u64 index) const {
+const Tdata& ARRAY_CLASS::At(u64 index) const {
     ASSERT(index >= 0 && index < Size());
     return _data[index];
 }
@@ -277,6 +130,21 @@ ARRAY_TEMPLATE
 Tdata& ARRAY_CLASS::At(u64 index) {
     ASSERT(index >= 0 && index < Size());
     return _data[index];
+}
+
+ARRAY_TEMPLATE
+void ARRAY_CLASS::ShrinkToFit() {
+    if(Capacity() == Size())
+        return;
+    Array temp = *this;
+    *this = temp;
+}
+
+ARRAY_TEMPLATE
+void ARRAY_CLASS::Resize(u64 value) {
+    if(value > Capacity())
+        Reserve(value);
+    _size = value;
 }
 
 ARRAY_TEMPLATE
@@ -307,7 +175,7 @@ ARRAY_CLASS& ARRAY_CLASS::Append(const Array& other) {
     if(Size() + other.Size() > Capacity())
     {
         Array temp = *this;
-        Reserve(std::max(Capacity(), other.Capacity()) * APPEND_FACTOR);
+        Reserve(std::max(Size(), other.Size()) * APPEND_FACTOR);
         CopyFrom(temp);
     }
     

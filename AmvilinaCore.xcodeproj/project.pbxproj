@@ -52,6 +52,9 @@
 		8B446E002A4E0AB10066BDC8 /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
 		8B446E0E2A4E0B980066BDC8 /* ArrayTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ArrayTests.hpp; sourceTree = "<group>"; };
 		8B446E0F2A4E19E00066BDC8 /* Array.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Array.hpp; sourceTree = "<group>"; };
+		8B95828E2A535EDF0067F2F3 /* ArrayIterator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ArrayIterator.hpp; sourceTree = "<group>"; };
+		8B95828F2A5360700067F2F3 /* ArrayImplementation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ArrayImplementation.hpp; sourceTree = "<group>"; };
+		8BBB784B2A52183700B7AF8A /* IntTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IntTypes.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,11 +87,10 @@
 		8B446DE92A4E0A580066BDC8 /* AmvilinaCore */ = {
 			isa = PBXGroup;
 			children = (
-				8B446E0D2A4E0B810066BDC8 /* UnitTests */,
+				8B9582942A55593A0067F2F3 /* General */,
+				8B9582932A5559050067F2F3 /* Array */,
 				8B446E0B2A4E0B5A0066BDC8 /* UnitTestSystem */,
-				8B446DF92A4E0AB10066BDC8 /* Assert.hpp */,
 				8B446DEA2A4E0A580066BDC8 /* main.cpp */,
-				8B446E0F2A4E19E00066BDC8 /* Array.hpp */,
 			);
 			path = AmvilinaCore;
 			sourceTree = "<group>";
@@ -96,6 +98,8 @@
 		8B446E0B2A4E0B5A0066BDC8 /* UnitTestSystem */ = {
 			isa = PBXGroup;
 			children = (
+				8B172B5F2A4F0B84003C0CEF /* UnitTests.cpp */,
+				8B172B602A4F0B84003C0CEF /* UnitTests.hpp */,
 				8B446DF32A4E0AB10066BDC8 /* TestAllocator.cpp */,
 				8B446DF72A4E0AB10066BDC8 /* TestAllocator.hpp */,
 				8B446DF52A4E0AB10066BDC8 /* TestClass.cpp */,
@@ -114,14 +118,24 @@
 			path = UnitTestSystem;
 			sourceTree = "<group>";
 		};
-		8B446E0D2A4E0B810066BDC8 /* UnitTests */ = {
+		8B9582932A5559050067F2F3 /* Array */ = {
 			isa = PBXGroup;
 			children = (
+				8B95828E2A535EDF0067F2F3 /* ArrayIterator.hpp */,
 				8B446E0E2A4E0B980066BDC8 /* ArrayTests.hpp */,
-				8B172B5F2A4F0B84003C0CEF /* UnitTests.cpp */,
-				8B172B602A4F0B84003C0CEF /* UnitTests.hpp */,
+				8B446E0F2A4E19E00066BDC8 /* Array.hpp */,
+				8B95828F2A5360700067F2F3 /* ArrayImplementation.hpp */,
 			);
-			path = UnitTests;
+			path = Array;
+			sourceTree = "<group>";
+		};
+		8B9582942A55593A0067F2F3 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				8B446DF92A4E0AB10066BDC8 /* Assert.hpp */,
+				8BBB784B2A52183700B7AF8A /* IntTypes.hpp */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -24,31 +24,37 @@ void TestCollection::RunAndPrintTime() const{
     RunAndPrint(PrintType::Time);
 }
 
+void TestCollection::RunAndPrintInteresting() const{
+    RunAndPrint(PrintType::Interesting);
+}
+
 void TestCollection::RunAndPrint(PrintType printType) const{
     for (auto testPointer : _testPointers) {
         std::cout << testPointer->Name() << ' ';
         TestClassResult result = testPointer->Run();
         PrintHeader(result);
         for (TestMethodResult methodResult : result.GetMethodsResults())
-            switch (printType) {
-                case PrintType::All:
-                    std::cout << methodResult.GetMessage();
-                    break;
-                case PrintType::Failed:
-                    if(!methodResult.IsSuccess())
-                        std::cout << methodResult.GetMessage();
-                    break;
-                case PrintType::Time:
-                    if(methodResult.IsTimeChecking())
-                        std::cout << methodResult.GetMessage();
-                    break;
-            }
+            if(ShouldPrintMethodResult(methodResult, printType))
+                std::cout << methodResult.GetMessage();
         std::cout << "===============================\n\n";
     }
 }
 
 void TestCollection::PrintHeader(const TestClassResult& result) const {
     std::cout << "( " << result.SuccessfulCount() << " / " << result.AllCount() << " )"
-              << " in " << result.TimeElapsed() << " microseconds with " << result.BytesLeaked() << " bytes leaked\n";
+              << " in " << (double)result.TimeElapsed() / 1000.0 << "ms with " << result.BytesLeaked() << " bytes leaked\n";
     std::cout << "===============================\n";
+}
+
+bool TestCollection::ShouldPrintMethodResult(const TestMethodResult& result, PrintType printType) const{
+    if(printType == PrintType::Failed)
+        return !result.IsSuccess();
+    
+    if(printType == PrintType::Time)
+        return result.IsTimeChecking();
+    
+    if(printType == PrintType::Interesting)
+        return !result.IsSuccess() || result.IsTimeChecking();
+    
+    return true;
 }
