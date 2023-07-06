@@ -16,6 +16,7 @@ public:
     TestMethodResult(const std::string& methodName);
     std::string GetMessage() const;
     bool IsMemoryLeak() const;
+    bool IsError() const;
     bool IsSuccess() const;
     bool IsTimeChecking() const;
 };
