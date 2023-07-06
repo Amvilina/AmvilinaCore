@@ -1,9 +1,9 @@
 #ifndef ArrayIterator_hpp
 #define ArrayIterator_hpp
 
-template <class Tdata, class Allocator>
+template <class Tdata>
 template <class Tpointer, class Treference>
-class Array<Tdata, Allocator>::TemplateIterator {
+class Array<Tdata>::TemplateIterator {
 public:
     using iterator_category = std::contiguous_iterator_tag;
     using difference_type   = std::ptrdiff_t;

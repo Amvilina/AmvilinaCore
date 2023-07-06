@@ -34,9 +34,10 @@ public:                                                                         
 #define TEST_METHOD_START(name)                                                         \
         {                                                                               \
             TestMethodResult methodResult(name);                                        \
-            Timer timer;                                                                \
             TestAllocatorBytesCounter::Reset();                                         \
-            try                                                                         \
+            {                                                                           \
+                Timer timer;                                                            \
+                try                                                                     \
 
 //user test methods
 #define TEST_METHOD(name)   \
@@ -44,20 +45,22 @@ TEST_METHOD_END             \
 TEST_METHOD_START(#name)    \
 
 #define TEST_METHOD_END                                                                 \
-            catch(const TestError& error) {                                             \
-                methodResult.error = error;                                             \
-            }                                                                           \
-            catch(...) {                                                                \
-                TestError error(0, "", "Unknown exception occured!");                   \
-                methodResult.error = error;                                             \
+                catch(const TestError& error) {                                         \
+                    methodResult.error = error;                                         \
+                }                                                                       \
+                catch(...) {                                                            \
+                    TestError error(0, "", "Unknown exception occured!");               \
+                    methodResult.error = error;                                         \
+                }                                                                       \
+                methodResult.timeElapsed = timer.Elapsed();                             \
             }                                                                           \
             methodResult.bytesLeaked = TestAllocatorBytesCounter::Get();                \
-            methodResult.timeElapsed = timer.Elapsed();                                 \
             classResult.AddMethodResult(methodResult);                                  \
         }                                                                               \
             
 #define TEST_CLASS_END(name)                                                            \
         TEST_METHOD_END                                                                 \
+        classResult.DeleteValidationTest();                                             \
         return classResult;                                                             \
     }                                                                                   \
 };                                                                                      \

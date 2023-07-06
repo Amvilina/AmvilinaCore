@@ -18,26 +18,6 @@ public:
     static u64 Get();
 };
 
-
-
-template <class T>
-class TestAllocator {
-public:
-    using value_type = T;
-    
-    T* allocate(u64 n) {
-        TestAllocatorBytesCounter::Add(n * sizeof(T));
-        return new T[n];
-    }
-    
-    void deallocate(T* pointer, u64 n) {
-        delete [] pointer;
-        TestAllocatorBytesCounter::Remove(n * sizeof(T));
-    }
-};
-
-
-
 }
 
 #endif

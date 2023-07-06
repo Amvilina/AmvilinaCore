@@ -7,13 +7,12 @@
 
 namespace AmvilinaCore{
 
-template <class Tdata, class Allocator = std::allocator<Tdata>>
+template <class Tdata>
 class Array{
 protected:
     Tdata* _data;
     u64 _size;
     u64 _capacity;
-    Allocator _allocator;
     static constexpr u8 APPEND_FACTOR = 2;
 public:
     Array();

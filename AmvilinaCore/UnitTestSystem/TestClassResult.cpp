@@ -10,6 +10,11 @@ void TestClassResult::AddMethodResult(const TestMethodResult& methodResult) {
     _timeElapsed += methodResult.timeElapsed;
 }
 
+void TestClassResult::DeleteValidationTest() {
+    _methodsResults.erase(_methodsResults.begin(), _methodsResults.begin() + 1);
+    --_successfulCount;
+}
+
 const std::vector<TestMethodResult> TestClassResult::GetMethodsResults() const {
     return _methodsResults;
 }

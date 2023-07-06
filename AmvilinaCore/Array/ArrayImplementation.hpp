@@ -1,8 +1,8 @@
 #ifndef ArrayImplementation_h
 #define ArrayImplementation_h
 
-#define ARRAY_TEMPLATE template <class Tdata, class Allocator>
-#define ARRAY_CLASS Array<Tdata, Allocator>
+#define ARRAY_TEMPLATE template <class Tdata>
+#define ARRAY_CLASS Array<Tdata>
 #define ARRAY_TYPENAME typename ARRAY_CLASS
 
 ARRAY_TEMPLATE
@@ -187,12 +187,12 @@ ARRAY_TEMPLATE
 void ARRAY_CLASS::AllocateMemory(u64 capacity){
     ASSERT(capacity > 0);
     _capacity = capacity;
-    _data = _allocator.allocate(_capacity);
+    _data = new Tdata[_capacity];
 }
 
 ARRAY_TEMPLATE
 void ARRAY_CLASS::FreeMemory() {
-    _allocator.deallocate(_data, _capacity);
+    delete [] _data;
 }
 
 ARRAY_TEMPLATE

@@ -14,6 +14,7 @@ private:
     u64 _timeElapsed = 0;
 public:
     void AddMethodResult(const TestMethodResult& methodResult);
+    void DeleteValidationTest();
     const std::vector<TestMethodResult> GetMethodsResults() const;
     u64 SuccessfulCount() const;
     u64 AllCount() const;
