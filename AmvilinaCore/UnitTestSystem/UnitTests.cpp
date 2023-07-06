@@ -1,6 +1,11 @@
 #include "UnitTests.hpp"
 #include "TestCollection.hpp"
+
 #include "ArrayTests.hpp"
+#include "StringTests.hpp"
+#include "BitChunkTests.hpp"
+#include "BigIntegerTests.hpp"
+
 namespace UnitTests{
 
 void Run() {

@@ -16,6 +16,9 @@
 		8B446E052A4E0AB10066BDC8 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DFC2A4E0AB10066BDC8 /* Timer.cpp */; };
 		8B446E062A4E0AB10066BDC8 /* TestMethodResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DFE2A4E0AB10066BDC8 /* TestMethodResult.cpp */; };
 		8B446E072A4E0AB10066BDC8 /* TestError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B446DFF2A4E0AB10066BDC8 /* TestError.cpp */; };
+		8B95829C2A556FAA0067F2F3 /* BigInteger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B95829A2A556FAA0067F2F3 /* BigInteger.cpp */; };
+		8BD7D5062A56CCB10041095A /* BitChunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7D5042A56CCB10041095A /* BitChunk.cpp */; };
+		8BD7D5092A56CCBC0041095A /* String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7D5072A56CCBC0041095A /* String.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +36,8 @@
 /* Begin PBXFileReference section */
 		8B172B5F2A4F0B84003C0CEF /* UnitTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnitTests.cpp; sourceTree = "<group>"; };
 		8B172B602A4F0B84003C0CEF /* UnitTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnitTests.hpp; sourceTree = "<group>"; };
+		8B2E60EB2A5725910054CFB4 /* StringTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringTests.hpp; sourceTree = "<group>"; };
+		8B2E60EC2A5737FB0054CFB4 /* BitChunkTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BitChunkTests.hpp; sourceTree = "<group>"; };
 		8B446DE72A4E0A580066BDC8 /* AmvilinaCore */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AmvilinaCore; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B446DEA2A4E0A580066BDC8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8B446DF22A4E0AB10066BDC8 /* TestMethodResult.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestMethodResult.hpp; sourceTree = "<group>"; };
@@ -54,7 +59,14 @@
 		8B446E0F2A4E19E00066BDC8 /* Array.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Array.hpp; sourceTree = "<group>"; };
 		8B95828E2A535EDF0067F2F3 /* ArrayIterator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ArrayIterator.hpp; sourceTree = "<group>"; };
 		8B95828F2A5360700067F2F3 /* ArrayImplementation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ArrayImplementation.hpp; sourceTree = "<group>"; };
+		8B95829A2A556FAA0067F2F3 /* BigInteger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BigInteger.cpp; sourceTree = "<group>"; };
+		8B95829B2A556FAA0067F2F3 /* BigInteger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BigInteger.hpp; sourceTree = "<group>"; };
+		8B95829D2A5583740067F2F3 /* BigIntegerTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BigIntegerTests.hpp; sourceTree = "<group>"; };
 		8BBB784B2A52183700B7AF8A /* IntTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IntTypes.hpp; sourceTree = "<group>"; };
+		8BD7D5042A56CCB10041095A /* BitChunk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BitChunk.cpp; sourceTree = "<group>"; };
+		8BD7D5052A56CCB10041095A /* BitChunk.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BitChunk.hpp; sourceTree = "<group>"; };
+		8BD7D5072A56CCBC0041095A /* String.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = String.cpp; sourceTree = "<group>"; };
+		8BD7D5082A56CCBC0041095A /* String.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = String.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B2E60EA2A571ED50054CFB4 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8B95829D2A5583740067F2F3 /* BigIntegerTests.hpp */,
+				8B446E0E2A4E0B980066BDC8 /* ArrayTests.hpp */,
+				8B2E60EB2A5725910054CFB4 /* StringTests.hpp */,
+				8B2E60EC2A5737FB0054CFB4 /* BitChunkTests.hpp */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		8B446DDE2A4E0A580066BDC8 = {
 			isa = PBXGroup;
 			children = (
@@ -87,10 +110,17 @@
 		8B446DE92A4E0A580066BDC8 /* AmvilinaCore */ = {
 			isa = PBXGroup;
 			children = (
+				8BD7D5042A56CCB10041095A /* BitChunk.cpp */,
+				8BD7D5052A56CCB10041095A /* BitChunk.hpp */,
+				8BD7D5072A56CCBC0041095A /* String.cpp */,
+				8BD7D5082A56CCBC0041095A /* String.hpp */,
+				8B2E60EA2A571ED50054CFB4 /* Tests */,
 				8B9582942A55593A0067F2F3 /* General */,
 				8B9582932A5559050067F2F3 /* Array */,
 				8B446E0B2A4E0B5A0066BDC8 /* UnitTestSystem */,
 				8B446DEA2A4E0A580066BDC8 /* main.cpp */,
+				8B95829A2A556FAA0067F2F3 /* BigInteger.cpp */,
+				8B95829B2A556FAA0067F2F3 /* BigInteger.hpp */,
 			);
 			path = AmvilinaCore;
 			sourceTree = "<group>";
@@ -122,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				8B95828E2A535EDF0067F2F3 /* ArrayIterator.hpp */,
-				8B446E0E2A4E0B980066BDC8 /* ArrayTests.hpp */,
 				8B446E0F2A4E19E00066BDC8 /* Array.hpp */,
 				8B95828F2A5360700067F2F3 /* ArrayImplementation.hpp */,
 			);
@@ -198,12 +227,15 @@
 				8B446E072A4E0AB10066BDC8 /* TestError.cpp in Sources */,
 				8B446E022A4E0AB10066BDC8 /* TestClass.cpp in Sources */,
 				8B446E032A4E0AB10066BDC8 /* TestClassResult.cpp in Sources */,
+				8BD7D5062A56CCB10041095A /* BitChunk.cpp in Sources */,
 				8B446DEB2A4E0A580066BDC8 /* main.cpp in Sources */,
 				8B172B612A4F0B84003C0CEF /* UnitTests.cpp in Sources */,
+				8BD7D5092A56CCBC0041095A /* String.cpp in Sources */,
 				8B446E052A4E0AB10066BDC8 /* Timer.cpp in Sources */,
 				8B446E012A4E0AB10066BDC8 /* TestAllocator.cpp in Sources */,
 				8B446E042A4E0AB10066BDC8 /* TestCollection.cpp in Sources */,
 				8B446E062A4E0AB10066BDC8 /* TestMethodResult.cpp in Sources */,
+				8B95829C2A556FAA0067F2F3 /* BigInteger.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
