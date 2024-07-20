@@ -360,6 +360,11 @@ TEST_METHOD(Multiplication)
     MUST_BE_TRUE(a == 0);
     
     MUST_BE_TRUE(-a == -1*a);
+    
+    a = "0x6547218481274f6875ac8675867db219678e9d6f8921";
+    BigInteger b = "0x67214684ac8975987b659f8735d0987639e67869a6987c69b6";
+    BigInteger c = a * b;
+    MUST_BE_TRUE(c == "0x28ccc88d922526c367d975bf5b8838823f63c54ebdeaa18c68127cb8304c026d1e16e1d939ea15a3210dceb0860676");
 }
 
 TEST_METHOD(Division)

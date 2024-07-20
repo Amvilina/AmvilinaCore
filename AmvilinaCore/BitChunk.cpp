@@ -65,14 +65,18 @@ bool BitChunk::ShiftChunkLeftAndReturnCarryBit(u64& chunk, bool carry) {
 
 bool BitChunk::AddChunksAndReturnCarryBit(u64& baseChunk, u64 otherChunk, bool carry) {
     u64 copy = baseChunk;
-    baseChunk += otherChunk + (carry ? 1 : 0);
-    return (baseChunk < copy || baseChunk < otherChunk);
+    baseChunk += otherChunk;
+    bool newCarry = (baseChunk < copy || baseChunk < otherChunk);
+    baseChunk += (carry) ? 1 : 0;
+    if(baseChunk < copy || baseChunk < otherChunk)
+        newCarry = true;
+    return newCarry;
 }
 
 bool BitChunk::SubtractChunksAndReturnIfBorrow(u64& baseChunk, u64 otherChunk, bool isBorrow) {
     bool isBorrowing = false;
-    if(baseChunk == 0 && otherChunk != 0)
-        isBorrowing = true;
+    if(baseChunk == 0)
+        isBorrowing = (otherChunk != 0) || isBorrow;
 
     baseChunk -= (isBorrow ? 1 : 0);
     if( baseChunk < otherChunk ) {
